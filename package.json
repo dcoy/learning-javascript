@@ -20,5 +20,13 @@
   "bugs": {
     "url": "https://github.com/obsidianspork/learning-javascript/issues"
   },
-  "homepage": "https://github.com/obsidianspork/learning-javascript#readme"
+  "homepage": "https://github.com/obsidianspork/learning-javascript#readme",
+  "dependencies": {
+    "underscore": "^1.8.3"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.18.0",
+    "babel-preset-es2015": "^6.18.0",
+    "gulp": "^3.9.1"
+  }
 }
