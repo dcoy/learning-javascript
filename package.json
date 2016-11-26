@@ -1,0 +1,24 @@
+{
+  "name": "learning-javascript",
+  "version": "1.0.0",
+  "description": "How I'm learning JS",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/obsidianspork/learning-javascript.git"
+  },
+  "keywords": [
+    "npm",
+    "node",
+    "javascript"
+  ],
+  "author": "David Coy",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/obsidianspork/learning-javascript/issues"
+  },
+  "homepage": "https://github.com/obsidianspork/learning-javascript#readme"
+}
