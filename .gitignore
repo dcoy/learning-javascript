@@ -1,3 +1,10 @@
+# OSX folder attributes
+.DS_Store
+
+# Temporary files
+*.tmp
+*~
+
 # Logs
 logs
 *.log
@@ -26,7 +33,7 @@ coverage
 # Compiled binary addons (http://nodejs.org/api/addons.html)
 build/Release
 
-# Dependency directories
+# Project dependency directories
 node_modules
 jspm_packages
 
