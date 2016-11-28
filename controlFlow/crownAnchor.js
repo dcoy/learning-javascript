@@ -40,7 +40,7 @@ while(funds > 1 && funds < 100) {
   funds = funds - totalBet;
   console.log('\tbets: ' +
       Object.keys(bets).map(face => `${face}: ${bets[face]}p`).join(', ') +
-      ` (total: ${totalBet}p)`);
+      `(total: ${totalBet}p)`);
 
   // roll dice
   let hand = [];
