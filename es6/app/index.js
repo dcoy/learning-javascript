@@ -70,7 +70,7 @@ console.log(str); // O haihaihaihaihai
 
 console.log("butterfly".startsWith("butter")); // true
 console.log("butterfly".endsWith("fly")); // true
-console.log("butterfly".includes("t")); // true 
+console.log("butterfly".includes("t")); // true
 
 // Checking Numbers
 
@@ -273,3 +273,172 @@ console.log(`Your balance is: $${wallet.check()}`);
 // ================================
 // ========== Generators ==========
 // ================================
+
+function* letterMaker() {
+  yield 'a';
+  yield 'b';
+  yield 'c';
+}
+
+let letterGen = letterMaker();
+console.log(letterGen.next().value);
+console.log(letterGen.next().value);
+console.log(letterGen.next().value);
+console.log(letterGen.next().value); // undefined - no `yield` defined
+
+function* countMaker() {
+  let count = 0;
+  while (count < 3) {
+    yield count += 1;
+  }
+}
+
+let countGen = countMaker();
+console.log(countGen.next().value);
+console.log(countGen.next().value);
+console.log(countGen.next().value);
+console.log(countGen.next().value);// undefined - count is less than 3
+
+function* evens() {
+  let count = 0;
+  while(true) {
+    count +=2;
+    let reset = yield count;
+    if (reset) {
+      count = 0;
+    }
+  }
+}
+
+let sequence = evens();
+console.log(sequence.next().value);
+console.log(sequence.next().value);
+console.log(sequence.next().value);
+console.log(sequence.next(true).value);
+console.log(sequence.next().value);
+
+// Generators vs. Iterators
+
+// const arrayIterator = (array) => {
+//   let index = 0;
+
+//   return {
+//     next: () => {
+//       if (index < array.length) {
+//         let next = array[index];
+//         index += 1;
+//         return next
+//       }
+//     }
+//   }
+// }
+
+function* arrayIterator() {
+  for (let arg of arguments) {
+    yield arg;
+  }
+}
+
+// Concise way!
+// function* arrayIterator() {
+//   yield arg;
+// }
+
+let it = arrayIterator(1, 2, 3);
+console.log(it.next().value);
+console.log(it.next().value);
+console.log(it.next().value);
+
+// =======================================
+// ========== Async Programming ==========
+// =======================================
+
+// Promises
+// Basic Syntax
+
+let p = new Promise((resolve, reject) => {
+  // resolve('Resolved promise data');
+  reject('Rejected promise data');
+})
+
+p.then(response => console.log(response))
+  .catch(error => console.log(error));
+
+let q = new Promise((resolve, reject) => {
+  setTimeout(() => resolve('Resolved promise data'), 3000);
+})
+
+q.then(response => console.log(response))
+  .catch(error => console.log(error));
+console.log('after promise consumption');
+
+// Practical Example - Promises
+// ES6 & Fetch
+const root = "http://jsonplaceholder.typicode.com/posts/1";
+fetch(root, { method: "GET" })
+  .then(response => response.json())
+  .then(json => console.log(json));
+
+// Hittin the books
+const books = 'https://www.googleapis.com/books/v1/volumes?q=isbn:0747532699';
+fetch(books, { method: "GET" })
+  .then(response => response.json())
+  .then(json => console.log(json));
+
+// =========================
+// ========== ES7 ==========
+// =========================
+
+let n = 2**5 //Math.pow(i,j);
+console.log(n);
+
+let o = "wonderful".includes("butter");
+let arr3 = [2, 3, 4, 5, 6].includes(7);
+console.log(o);
+console.log(arr3);
+
+
+// ==================================
+// ========== ES8 Proposal ==========
+// ==================================
+
+let obj = { a: "one", b: "two", c: "three" };
+let keys = Object.keys(obj);
+let values2 = Object.values(obj);
+let entries = Object.entries(obj);
+console.log(keys);
+console.log(values);
+console.log(entries);
+
+for (let entry of entries) {
+  console.log(`key: ${entry[0]}, value: ${entry[1]}`);
+}
+
+// ES8 Proposal - Async
+
+async function async_one() {
+  return "The response is: one";
+}
+
+async function async_two() {
+  throw new Error('Issue with async!');
+}
+
+async function async_three() {
+  const one = await async_one;
+  console.log(one);
+  const two = await async_two;
+  console.log(two);
+}
+
+async function async_four() {
+  const [res_one, res_two] = await Promise.all(
+    [async_one(), async_two()]
+  )
+  console.log(res_one, res_two);
+}
+
+async_one().then(response => console.log(response));
+async_two().catch(error => console.log(error));
+async_three();
+async_four();
