@@ -1,5 +1,4 @@
 'use strict';
-'use scrict';
 // es6 feature: block-scoped "let" declaration
 
 var sentences = [{ subject: 'JavScript', verb: 'is', object: 'great' }, { subject: 'Elephants', verb: 'are', object: 'large' }];
