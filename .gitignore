@@ -56,3 +56,9 @@ typings/
 
 # dotenv environment variables file
 .env
+
+# no track ES5 code
+firstProject/dist/*
+firstProject/dist/**
+firstProject/public/dist/*
+firstProject/public/dist/**
