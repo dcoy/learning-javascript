@@ -2,7 +2,7 @@
 // es6 feature: block-scoped "let" declaration
 const sentences = [
   { subject: 'JavScript', verb: 'is', object:  'great' },
-  { subject: 'Elephants', verb: 'are', object: 'large' }
+  { subject: 'Elephants', verb: 'are', object: 'large' },
 ];
 
 function say({ subject, verb, object }) {
